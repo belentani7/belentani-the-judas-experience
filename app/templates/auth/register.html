@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}REGISTER TENANT{% endblock %}
+{% block content %}
+<section class="auth-wrap">
+  <form class="glass panel auth-card" method="post" action="/auth/register">
+    <p class="kicker">NEW NODE</p>
+    <h1>Register</h1>
+    <label>Name<input name="display_name" required /></label>
+    <label>Email<input type="email" name="email" required /></label>
+    <label>Key<input type="password" name="password" required /></label>
+    <button class="btn-glass" type="submit">Spin tenant</button>
+  </form>
+</section>
+{% endblock %}

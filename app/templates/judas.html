@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}JUDAS EXPERIENCE // BELENTANI{% endblock %}
+{% block body %}
+<p class="kicker">FIGURA ESCÉNICA // MITO VIVO</p>
+<h1>THE JUDAS EXPERIENCE</h1>
+<p class="hero-copy">
+  Judas funciona como una máscara dramática: deseo, quiebre y eco. No es el centro; es el borde que empuja la obra a moverse.
+  El mito no reemplaza al autor; lo intensifica.
+</p>
+
+{% for ch in chapters %}
+  <article class="glass chapter" id="{{ ch.phase }}">
+    <p class="kicker">{{ ch.phase }} · {{ ch.kicker }}</p>
+    <h2>{{ ch.glyph }} {{ ch.title }}</h2>
+    <p>{{ ch.body }}</p>
+  </article>
+{% endfor %}
+
+<h2>Portal de gemas</h2>
+<div class="gem-grid" id="gems">
+  {% for a in archetypes %}
+    <button class="glass gem" type="button" data-gem="{{ a.id }}">
+      <div class="glyph">{{ a.glyph }}</div>
+      <strong>{{ a.name }}</strong>
+      <div>{{ a.title }}</div>
+      <small>{{ a.line }}</small>
+    </button>
+  {% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/judas-experience.js"></script>
+{% endblock %}

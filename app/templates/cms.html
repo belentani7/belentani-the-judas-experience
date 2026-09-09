@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}CMS // BELENTANI{% endblock %}
+{% block body %}
+<p class="kicker">ARTIST CMS STUB · GROWS 1000X</p>
+<h1>CMS</h1>
+<p class="hero-copy">Módulo de contenidos: obras, estados y futuras media pipelines. Esta capa está lista para crecer.</p>
+<div class="works">
+  {% for work in works %}
+    {% include "partials/work_row.html" %}
+  {% endfor %}
+</div>
+{% endblock %}

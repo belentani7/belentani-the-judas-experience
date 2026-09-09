@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block body %}
+<section>
+  <p class="kicker">◉ BELENTANI PRESENTA • JUDAS ERA • 2026 ◉</p>
+  <h1>BELENTANI</h1>
+  <p class="hero-copy">
+    Belentani dirige un ecosistema visual y sonoro donde el cristal, el neón y la voz operan como un solo sistema.
+    Judas es una figura escénica del mito; la autoría, el sonido y la mirada permanecen en el centro.
+  </p>
+  <p>
+    <a class="btn" href="/judas">Enter Judas Experience</a>
+    <a class="btn" href="/studio">Open Studio SaaS</a>
+  </p>
+</section>
+
+<div class="two">
+  <article class="glass chapter">
+    <p class="kicker">Concepto</p>
+    <h2>La herida se convierte en arquitectura viva.</h2>
+    <p>Una experiencia de ciencia ficción emocional con neón, desierto, glitch y una narrativa de deseo, choque y transformación.</p>
+    <p class="kicker">Paleta</p>
+    <p>Negro absoluto, rojo neón, sangre, cuero desgastado y cristal esmerilado.</p>
+  </article>
+  <aside class="glass chapter terminal" id="boot-log">
+    {% for line in boot %}
+      <div>&gt; {{ line }}</div>
+    {% endfor %}
+    <span class="cursor"></span>
+  </aside>
+</div>
+
+<h2>THE 5 ELEMENTS PROTOCOL</h2>
+<p class="hero-copy">Activa las gemas arquetipas para sincronizar el enjambre.</p>
+<div class="gem-grid" id="gems">
+  {% for a in archetypes %}
+    <button class="glass gem" type="button" data-gem="{{ a.id }}">
+      <div class="glyph">{{ a.glyph }}</div>
+      <strong>{{ a.name }}</strong>
+      <div>{{ a.title }}</div>
+      <small>{{ a.line }}</small>
+    </button>
+  {% endfor %}
+</div>
+
+<h2 style="margin-top:2.5rem">Pilares del sistema</h2>
+<ul class="pillars">
+  {% for p in pillars %}
+    <li>{{ p }}</li>
+  {% endfor %}
+</ul>
+
+<h2 style="margin-top:2.5rem">SONIC ARCHIVE</h2>
+<div class="works">
+  {% for work in works %}
+    {% include "partials/work_row.html" %}
+  {% endfor %}
+</div>
+{% endblock %}

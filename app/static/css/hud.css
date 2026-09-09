@@ -1,0 +1,133 @@
+.hud-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--hud);
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255, 80, 90, 0.25);
+}
+
+.hud-bar span { opacity: 0.85; }
+
+.status-critical {
+  color: var(--neon);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; text-shadow: 0 0 12px var(--neon); }
+}
+
+.terminal {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: #ffc9cc;
+  min-height: 8rem;
+}
+
+.terminal .cursor {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1em;
+  background: var(--neon);
+  animation: blink 1s steps(1) infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.gem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.9rem;
+}
+
+.gem {
+  padding: 1.1rem;
+  cursor: pointer;
+  min-height: 170px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gem:hover { transform: translateY(-4px); }
+.gem.active {
+  box-shadow: 0 0 0 1px var(--neon), 0 0 40px rgba(255, 26, 42, 0.45);
+}
+
+.gem .glyph {
+  font-size: 1.6rem;
+  color: var(--neon-hot);
+}
+
+.gem small {
+  display: block;
+  margin-top: 0.4rem;
+  opacity: 0.65;
+  font-size: 0.75rem;
+}
+
+.chapter {
+  padding: 1.4rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.works {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.work-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.6fr 2fr;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .work-row { grid-template-columns: 1fr; }
+}
+
+.hero-copy {
+  max-width: 42rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.88;
+}
+
+.pillars { display: grid; gap: 0.7rem; padding-left: 1.1rem; }
+.two {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.2rem;
+  margin: 2rem 0 3rem;
+}
+@media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
+
+.auth-card { max-width: 420px; margin: 4rem auto; padding: 1.6rem; }
+.auth-card form { display: grid; gap: 0.8rem; }
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 900px) { .studio-grid { grid-template-columns: 1fr; } }
+
+footer.os {
+  margin: 4rem 0 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

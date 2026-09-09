@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}LOGIN // JUDAS_OS{% endblock %}
+{% block content %}
+<section class="auth-wrap">
+  <form class="glass panel auth-card" method="post" action="/auth/login">
+    <p class="kicker">CONTACT PROTOCOL</p>
+    <h1>Login</h1>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <label>Email<input type="email" name="email" value="studio@belentani.es" required /></label>
+    <label>Key<input type="password" name="password" value="omega" required /></label>
+    <button class="btn-glass" type="submit">Establish connection</button>
+    <p><a href="/auth/register">Create tenant</a></p>
+  </form>
+</section>
+{% endblock %}

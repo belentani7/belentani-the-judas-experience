@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}STUDIO // BELENTANI SaaS{% endblock %}
+{% block body %}
+<p class="kicker">TENANT {{ tenant.slug }} · PLAN {{ tenant.plan }}</p>
+<h1>STUDIO</h1>
+<p class="hero-copy">Núcleo SaaS del artista. Catálogo, releases y tenancy. Demo login: studio@belentani.es / omega432</p>
+
+<div class="studio-grid">
+  <section class="glass chapter">
+    <h2>Obras</h2>
+    <div class="works" id="work-list">
+      {% for work in works %}
+        {% include "partials/work_row.html" %}
+      {% endfor %}
+    </div>
+  </section>
+  <section class="glass chapter">
+    <h2>Inyectar obra</h2>
+    <form hx-post="/api/works" hx-target="#work-list" hx-swap="beforeend">
+      <input class="field" name="title" placeholder="Título" required />
+      <input class="field" name="kind" placeholder="single / session / visual" style="margin-top:.6rem" />
+      <textarea class="field" name="summary" placeholder="Resumen" style="margin-top:.6rem;min-height:6rem"></textarea>
+      <button class="btn" type="submit" style="margin-top:.8rem">Commit to archive</button>
+    </form>
+  </section>
+</div>
+{% endblock %}

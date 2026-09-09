@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}BELENTANI // THE JUDAS EXPERIENCE{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/tokens.css" />
+  <link rel="stylesheet" href="/static/css/glass.css" />
+  <link rel="stylesheet" href="/static/css/hud.css" />
+</head>
+<body>
+  <div class="atmosphere"></div>
+  <div class="vignette"></div>
+  <div class="site">
+    <div class="wrap">
+      <div class="hud-bar">
+        <span>LAT:{{ hud.lat if hud is defined else '41.3851°N' }}</span>
+        <span>LON:{{ hud.lon if hud is defined else '2.1734°E' }}</span>
+        <span>FREQ:{{ hud.freq if hud is defined else 432.00 }}Hz</span>
+        <span>NODE:{{ hud.node if hud is defined else 'JUDAS-CORE-07' }}</span>
+        <span class="status-critical">SYS.STATUS: CRITICAL</span>
+      </div>
+      <nav class="nav">
+        <a class="brand" href="/">BELENTANI</a>
+        <div>
+          <a href="/" class="{% if request.url.path == '/' %}active{% endif %}">Portal</a>
+          <a href="/judas" class="{% if request.url.path == '/judas' %}active{% endif %}">Judas</a>
+          <a href="/studio">Studio</a>
+          <a href="/cms">CMS</a>
+          {% if user %}
+            <form action="/auth/logout" method="post" style="display:inline">
+              <button class="btn" type="submit">Logout</button>
+            </form>
+          {% else %}
+            <a class="btn" href="/auth/login">Uplink</a>
+          {% endif %}
+        </div>
+      </nav>
+      {% block body %}{% endblock %}
+      <footer class="os">{{ hud.os if hud is defined else 'JUDAS_OS v12.0 // OMEGA_CLEAN' }} · belentani.es · Crystal Drift</footer>
+    </div>
+  </div>
+  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+  <script src="/static/js/hud.js"></script>
+  <script src="/static/js/gems.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

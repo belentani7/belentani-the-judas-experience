@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}UPLINK{% endblock %}
+{% block body %}
+<div class="glass auth-card">
+  <p class="kicker">AUTH PROTOCOL</p>
+  <h2>Uplink</h2>
+  {% if error %}<p class="err">{{ error }}</p>{% endif %}
+  <form method="post">
+    <input class="field" type="email" name="email" placeholder="email" required />
+    <input class="field" type="password" name="password" placeholder="key" required />
+    <button class="btn" type="submit">Establish link</button>
+  </form>
+  <p><a href="/auth/register">Create node</a></p>
+  <p class="kicker">studio@belentani.es · omega432</p>
+</div>
+{% endblock %}
