@@ -1,3 +1,4 @@
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -16,9 +17,9 @@ class Settings(BaseSettings):
     frequency_hz: float = 432.0
     latitude: float = 41.3851
     longitude: float = 2.1734
-    secret_key: str = "change-me-in-production-omega-core"
+    secret_key: str = os.getenv("BELENTANI_SECRET_KEY", os.urandom(32).hex())
     session_cookie: str = "judas_session"
-    debug: bool = True
+    debug: bool = os.getenv("BELENTANI_DEBUG", "false").lower() == "true"
     host: str = "127.0.0.1"
     port: int = 4320
     data_dir: Path = ROOT / "data"

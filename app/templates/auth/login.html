@@ -2,14 +2,27 @@
 {% block title %}LOGIN // JUDAS_OS{% endblock %}
 {% block content %}
 <section class="auth-wrap">
-  <form class="glass panel auth-card" method="post" action="/auth/login">
+  <form class="glass panel auth-card" method="post" action="/auth/login" id="loginForm">
     <p class="kicker">CONTACT PROTOCOL</p>
     <h1>Login</h1>
     {% if error %}<p class="error">{{ error }}</p>{% endif %}
     <label>Email<input type="email" name="email" value="studio@belentani.es" required /></label>
-    <label>Key<input type="password" name="password" value="omega" required /></label>
+    <label>Key<input type="password" name="password" required /></label>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() if csrf_token else '' }}">
     <button class="btn-glass" type="submit">Establish connection</button>
     <p><a href="/auth/register">Create tenant</a></p>
   </form>
 </section>
+
+<script>
+// Simple CSRF token generation
+if (!document.querySelector('input[name="csrf_token"]')) {
+  const csrfToken = Math.random().toString(36).substring(2, 15);
+  const csrfInput = document.createElement('input');
+  csrfInput.type = 'hidden';
+  csrfInput.name = 'csrf_token';
+  csrfInput.value = csrfToken;
+  document.getElementById('loginForm').appendChild(csrfInput);
+}
+</script>
 {% endblock %}

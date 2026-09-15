@@ -30,3 +30,21 @@ FastAPI + Jinja2 + HTMX + CSS/JS. JSON store in `data/omega.json` (tenancy stub)
 | `/judas` | Five-phase experience + archetype gems |
 | `/studio` | Artist CMS |
 | `/api/health` `/api/hud` `/api/gems` | JSON for future growth |
+
+## Datos abiertos
+
+El directorio [`open-data/`](open-data/) trae un pack abierto de datos de **obras literarias (Open Library)** (fuente publica, sin clave de API).
+
+```bash
+python scripts/fetch_open_data.py   # regenera el pack
+```
+
+Ver [`open-data/README.md`](open-data/README.md) para fuente y licencia.
+
+## Proyectos open similares
+
+- [Ren'Py](https://github.com/renpy/renpy)
+- [Twine](https://github.com/klembot/twinejs)
+- [Ink](https://github.com/inkle/ink)
+- [ChoiceScript](https://github.com/dfabulich/choicescript)
+- [Open Library](https://openlibrary.org)

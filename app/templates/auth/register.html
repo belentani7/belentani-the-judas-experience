@@ -2,13 +2,26 @@
 {% block title %}REGISTER TENANT{% endblock %}
 {% block content %}
 <section class="auth-wrap">
-  <form class="glass panel auth-card" method="post" action="/auth/register">
+  <form class="glass panel auth-card" method="post" action="/auth/register" id="registerForm">
     <p class="kicker">NEW NODE</p>
     <h1>Register</h1>
-    <label>Name<input name="display_name" required /></label>
+    <label>Name<input name="display_name" required minlength="2" maxlength="50" /></label>
     <label>Email<input type="email" name="email" required /></label>
-    <label>Key<input type="password" name="password" required /></label>
+    <label>Key<input type="password" name="password" required minlength="8" maxlength="128" /></label>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() if csrf_token else '' }}">
     <button class="btn-glass" type="submit">Spin tenant</button>
   </form>
 </section>
+
+<script>
+// Simple CSRF token generation
+if (!document.querySelector('input[name="csrf_token"]')) {
+  const csrfToken = Math.random().toString(36).substring(2, 15);
+  const csrfInput = document.createElement('input');
+  csrfInput.type = 'hidden';
+  csrfInput.name = 'csrf_token';
+  csrfInput.value = csrfToken;
+  document.getElementById('registerForm').appendChild(csrfInput);
+}
+</script>
 {% endblock %}

@@ -61,3 +61,8 @@ async def studio(request: Request):
             releases=store.releases_for(tenant_id) or list(store.releases.values()),
         ),
     )
+
+
+@router.get("/base43", response_class=HTMLResponse)
+async def base43_interface(request: Request):
+    return templates.TemplateResponse("base43.html", ctx(request))

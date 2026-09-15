@@ -1,0 +1,705 @@
+{
+  "meta": {
+    "source": "https://openlibrary.org/search.json?q=judas&limit=100&fields=key,title,author_name,first_publish_year,language",
+    "license": "ver open-data/README.md",
+    "generated_at": "2026-09-15T15:52:02Z",
+    "count": 100
+  },
+  "records": [
+    {
+      "author_name": "Eleanor Burford",
+      "first_publish_year": 1750,
+      "key": "/works/OL3931398W",
+      "language": "eng; fin; nor; spa",
+      "title": "The Judas Kiss"
+    },
+    {
+      "author_name": "Anne Mather",
+      "first_publish_year": 1979,
+      "key": "/works/OL3771278W",
+      "language": "fre; und; eng",
+      "title": "The Judas Trap"
+    },
+    {
+      "author_name": "Peter F. Hamilton",
+      "first_publish_year": 2005,
+      "key": "/works/OL474023W",
+      "language": "ger; fre; spa; eng",
+      "title": "Judas Unchained"
+    },
+    {
+      "author_name": "Sally Wentworth",
+      "first_publish_year": 1981,
+      "key": "/works/OL3770408W",
+      "language": "eng",
+      "title": "The Judas kiss"
+    },
+    {
+      "author_name": "A. J. Cronin",
+      "first_publish_year": 1961,
+      "key": "/works/OL4189800W",
+      "language": "eng; fre",
+      "title": "The Judas tree"
+    },
+    {
+      "author_name": "Will Christopher Baer",
+      "first_publish_year": 1998,
+      "key": "/works/OL80394W",
+      "language": "eng",
+      "title": "Kiss me, Judas"
+    },
+    {
+      "author_name": "Henry Patterson",
+      "first_publish_year": 2010,
+      "key": "/works/OL15598531W",
+      "language": "eng",
+      "title": "The Judas Gate"
+    },
+    {
+      "author_name": "Stephen Adly Guirgis",
+      "first_publish_year": 2005,
+      "key": "/works/OL5847753W",
+      "language": "eng",
+      "title": "The last days of Judas Iscariot"
+    },
+    {
+      "author_name": "Elaine Pagels        ; Karen L. King",
+      "first_publish_year": 2007,
+      "key": "/works/OL3748805W",
+      "language": "eng",
+      "title": "Reading Judas"
+    },
+    {
+      "author_name": "Violet Winspear",
+      "first_publish_year": 1976,
+      "key": "/works/OL14934799W",
+      "language": "eng",
+      "title": "The child of Judas"
+    },
+    {
+      "author_name": "Marv Wolfman; George Perez",
+      "first_publish_year": 1987,
+      "key": "/works/OL2564991W",
+      "language": "eng",
+      "title": "The New Teen Titans"
+    },
+    {
+      "author_name": "Karl Evanzz",
+      "first_publish_year": 1992,
+      "key": "/works/OL2274165W",
+      "language": "eng; spa",
+      "title": "Factor Judas, El"
+    },
+    {
+      "author_name": "James Rollins",
+      "first_publish_year": 2007,
+      "key": "/works/OL5727599W",
+      "language": "eng",
+      "title": "The Judas Strain"
+    },
+    {
+      "author_name": "Taylor Caldwell",
+      "first_publish_year": 1977,
+      "key": "/works/OL5362116W",
+      "language": "eng; spa",
+      "title": "I, Judas"
+    },
+    {
+      "author_name": "Simon Mawer",
+      "first_publish_year": 2001,
+      "key": "/works/OL1900918W",
+      "language": "eng",
+      "title": "The gospel of Judas"
+    },
+    {
+      "author_name": "Robert B. Parker",
+      "first_publish_year": 1978,
+      "key": "/works/OL14860123W",
+      "language": "eng",
+      "title": "The Judas goat"
+    },
+    {
+      "author_name": "António Lobo Antunes",
+      "first_publish_year": 1979,
+      "key": "/works/OL2071853W",
+      "language": "fre; eng; por; ger; spa",
+      "title": "Os cus de Judas"
+    },
+    {
+      "author_name": "John Dickson Carr",
+      "first_publish_year": 1938,
+      "key": "/works/OL4134656W",
+      "language": "fin; eng",
+      "title": "The Judas window"
+    },
+    {
+      "author_name": "Hare, David; David Hare",
+      "first_publish_year": 1998,
+      "key": "/works/OL821543W",
+      "language": "eng",
+      "title": "The Judas Kiss"
+    },
+    {
+      "author_name": "Ralph M. McInerny; Ralph McInerny; Ralph McInerny; Ralph M McInerny",
+      "first_publish_year": 1991,
+      "key": "/works/OL57301W",
+      "language": "eng",
+      "title": "Judas Priest"
+    },
+    {
+      "author_name": "Horace Silver",
+      "first_publish_year": 2004,
+      "key": "/works/OL5796677W",
+      "language": "eng",
+      "title": "Judas pig"
+    },
+    {
+      "author_name": "Carol O'Connell",
+      "first_publish_year": 1998,
+      "key": "/works/OL2008574W",
+      "language": "gre; ger; eng",
+      "title": "Judas Child"
+    },
+    {
+      "author_name": "Bart D. Ehrman; Bart D. Ehrman",
+      "first_publish_year": 2006,
+      "key": "/works/OL18307W",
+      "language": "eng",
+      "title": "The Lost Gospel of Judas Iscariot"
+    },
+    {
+      "author_name": "Jane Aiken Hodge",
+      "first_publish_year": 1976,
+      "key": "/works/OL11068686W",
+      "language": "eng",
+      "title": "Judas flowering"
+    },
+    {
+      "author_name": "Suzette Haden Elgin; Amy Landon; Rebecca Romney",
+      "first_publish_year": 1987,
+      "key": "/works/OL492339W",
+      "language": "eng",
+      "title": "The Judas Rose"
+    },
+    {
+      "author_name": "Ted Allbeury",
+      "first_publish_year": 1984,
+      "key": "/works/OL80926W",
+      "language": "und; eng",
+      "title": "The Judas factor"
+    },
+    {
+      "author_name": "Frank Yerby",
+      "first_publish_year": 1968,
+      "key": "/works/OL4906753W",
+      "language": "eng",
+      "title": "Judas, my brother"
+    },
+    {
+      "author_name": "Robert B. Parker",
+      "first_publish_year": 1983,
+      "key": "/works/OL7967756W",
+      "language": "eng",
+      "title": "The Judas Goat"
+    },
+    {
+      "author_name": "Alexander Charles Cumming",
+      "first_publish_year": 2021,
+      "key": "/works/OL25345007W",
+      "language": "eng",
+      "title": "Judas 62"
+    },
+    {
+      "author_name": "Michael McGarrity",
+      "first_publish_year": 2000,
+      "key": "/works/OL62364W",
+      "language": "eng",
+      "title": "The Judas judge"
+    },
+    {
+      "author_name": "James Rollins",
+      "first_publish_year": 2010,
+      "key": "/works/OL17528248W",
+      "title": "The Judas Strain James Rollins"
+    },
+    {
+      "author_name": "Katherine Anne Porter",
+      "first_publish_year": 1935,
+      "key": "/works/OL1446721W",
+      "language": "eng",
+      "title": "Flowering Judas and other stories"
+    },
+    {
+      "author_name": "J. T. Ellison",
+      "first_publish_year": 2009,
+      "key": "/works/OL18345720W",
+      "language": "eng",
+      "title": "Judas kiss"
+    },
+    {
+      "author_name": "Robert B. Parker",
+      "first_publish_year": 1983,
+      "key": "/works/OL15411446W",
+      "language": "eng",
+      "title": "The Judas goat"
+    },
+    {
+      "author_name": "National Geographic Society",
+      "first_publish_year": 2006,
+      "key": "/works/OL15123791W",
+      "language": "eng",
+      "title": "The Gospel of Judas"
+    },
+    {
+      "author_name": "Rodolphe Kasser",
+      "first_publish_year": 2006,
+      "key": "/works/OL15861439W",
+      "language": "eng",
+      "title": "The Gospel of Judas"
+    },
+    {
+      "author_name": "Morley Callaghan",
+      "first_publish_year": 1983,
+      "key": "/works/OL3851082W",
+      "language": "eng",
+      "title": "A time for Judas"
+    },
+    {
+      "author_name": "Jonathan Gash",
+      "first_publish_year": 1977,
+      "key": "/works/OL100311W",
+      "language": "eng",
+      "title": "The Judas pair"
+    },
+    {
+      "author_name": "Brian Callison",
+      "first_publish_year": 1978,
+      "key": "/works/OL11276892W",
+      "language": "eng",
+      "title": "The Judas ship"
+    },
+    {
+      "author_name": "April Smith",
+      "first_publish_year": 2008,
+      "key": "/works/OL2983334W",
+      "language": "eng",
+      "title": "Judas horse"
+    },
+    {
+      "author_name": "Scott McBain",
+      "first_publish_year": 2001,
+      "key": "/works/OL261700W",
+      "language": "eng",
+      "title": "The Coins of Judas"
+    },
+    {
+      "author_name": "Astrid Holleeder",
+      "first_publish_year": 2018,
+      "key": "/works/OL19753466W",
+      "language": "eng",
+      "title": "Judas"
+    },
+    {
+      "author_name": "Timothy Zahn",
+      "first_publish_year": 2006,
+      "key": "/works/OL26413657W",
+      "language": "eng",
+      "title": "Blackcollar - The Judas Solution"
+    },
+    {
+      "author_name": "Daniel Easterman",
+      "first_publish_year": 1994,
+      "key": "/works/OL11345838W",
+      "language": "eng",
+      "title": "The Judas Testament"
+    },
+    {
+      "author_name": "Jane Haddam",
+      "first_publish_year": 2011,
+      "key": "/works/OL15921351W",
+      "language": "eng",
+      "title": "Flowering Judas"
+    },
+    {
+      "author_name": "F. van Wyck Mason",
+      "first_publish_year": 1956,
+      "key": "/works/OL6329850W",
+      "language": "eng",
+      "title": "Captain Judas"
+    },
+    {
+      "author_name": "Jeff Loveness",
+      "first_publish_year": 2018,
+      "key": "/works/OL19751199W",
+      "language": "eng",
+      "title": "Judas"
+    },
+    {
+      "author_name": "William Klassen",
+      "first_publish_year": 1996,
+      "key": "/works/OL3242203W",
+      "language": "eng",
+      "title": "Judas"
+    },
+    {
+      "author_name": "Will Christopher Baer",
+      "first_publish_year": 2006,
+      "key": "/works/OL24466388W",
+      "title": "Kiss Me, Judas"
+    },
+    {
+      "author_name": "Walter Simonson",
+      "first_publish_year": 2012,
+      "key": "/works/OL16637701W",
+      "language": "eng",
+      "title": "The Judas coin"
+    },
+    {
+      "author_name": "James Rollins",
+      "first_publish_year": 2007,
+      "key": "/works/OL24534024W",
+      "language": "eng",
+      "title": "The Judas Strain"
+    },
+    {
+      "author_name": "Katherine Anne Porter",
+      "first_publish_year": 1930,
+      "key": "/works/OL1446716W",
+      "language": "eng",
+      "title": "Flowering Judas"
+    },
+    {
+      "author_name": "Marcel Pagnol",
+      "first_publish_year": 1956,
+      "key": "/works/OL3171211W",
+      "language": "fre",
+      "title": "Judas"
+    },
+    {
+      "author_name": "Gautam Sharma",
+      "first_publish_year": 1985,
+      "key": "/works/OL351029W",
+      "language": "guj; eng",
+      "title": "Rah juda padya"
+    },
+    {
+      "author_name": "Bill Myers",
+      "first_publish_year": 2011,
+      "key": "/works/OL16148887W",
+      "language": "eng",
+      "title": "The Judas gospel"
+    },
+    {
+      "author_name": "Gavin Lyall",
+      "first_publish_year": 1975,
+      "key": "/works/OL3507757W",
+      "language": "eng",
+      "title": "Judas country"
+    },
+    {
+      "author_name": "Zenith Jones Brown",
+      "first_publish_year": 1961,
+      "key": "/works/OL15136181W",
+      "language": "eng",
+      "title": "The clue of the judas tree"
+    },
+    {
+      "author_name": "עמוס עוז; Nicholas de Lange",
+      "first_publish_year": 2014,
+      "key": "/works/OL20210849W",
+      "language": "heb; eng",
+      "title": "Judas"
+    },
+    {
+      "author_name": "Stuart Pawson",
+      "first_publish_year": 1996,
+      "key": "/works/OL8458731W",
+      "language": "eng",
+      "title": "The Judas Sheep"
+    },
+    {
+      "author_name": "Ewa Kuryluk",
+      "first_publish_year": 1987,
+      "key": "/works/OL4285984W",
+      "language": "eng",
+      "title": "Salome and Judas in the cave of sex"
+    },
+    {
+      "author_name": "J. T. Ellison",
+      "first_publish_year": 2012,
+      "key": "/works/OL21782190W",
+      "language": "eng",
+      "title": "Judas Kiss"
+    },
+    {
+      "author_name": "Joan Fontcuberta",
+      "first_publish_year": 1997,
+      "key": "/works/OL2859629W",
+      "language": "spa",
+      "title": "El beso de Judas"
+    },
+    {
+      "author_name": "Jane Aiken Hodge",
+      "first_publish_year": 1977,
+      "key": "/works/OL16248549W",
+      "language": "eng",
+      "title": "JUDAS FLOWERING (Fawcett Crest Book)"
+    },
+    {
+      "author_name": "Brendan Kennelly",
+      "first_publish_year": 1991,
+      "key": "/works/OL672426W",
+      "language": "eng",
+      "title": "The Book of Judas"
+    },
+    {
+      "author_name": "Eilis O'Hanlon",
+      "first_publish_year": 2007,
+      "key": "/works/OL17574062W",
+      "language": "eng",
+      "title": "The Judas Heart"
+    },
+    {
+      "author_name": "N. T. Wright",
+      "first_publish_year": 2006,
+      "key": "/works/OL1981302W",
+      "language": "eng",
+      "title": "Judas and the Gospel of Jesus"
+    },
+    {
+      "author_name": "Andrew Sinclair",
+      "first_publish_year": 1959,
+      "key": "/works/OL612377W",
+      "language": "eng",
+      "title": "My friend Judas"
+    },
+    {
+      "author_name": "Jonathan Gash",
+      "first_publish_year": 1988,
+      "key": "/works/OL100307W",
+      "language": "eng",
+      "title": "The Judas Pair (Lovejoy Mystery)"
+    },
+    {
+      "author_name": "Mark Everett Stone",
+      "first_publish_year": 2013,
+      "key": "/works/OL17857361W",
+      "language": "eng",
+      "title": "The Judas line"
+    },
+    {
+      "author_name": "James Rollins",
+      "first_publish_year": 2007,
+      "key": "/works/OL5727591W",
+      "language": "eng",
+      "title": "The Judas Strain LP"
+    },
+    {
+      "author_name": "J.T. Ellison",
+      "first_publish_year": 2010,
+      "key": "/works/OL20457547W",
+      "title": "Judas Kiss"
+    },
+    {
+      "author_name": "Susan Gubar",
+      "first_publish_year": 2009,
+      "key": "/works/OL16994206W",
+      "language": "eng",
+      "title": "Judas"
+    },
+    {
+      "author_name": "Taylor Caldwell",
+      "first_publish_year": 2007,
+      "key": "/works/OL5362090W",
+      "language": "spa",
+      "title": "Yo, Judas/ I, Judas"
+    },
+    {
+      "author_name": "James Rollins",
+      "first_publish_year": 2007,
+      "key": "/works/OL16063864W",
+      "language": "eng",
+      "title": "The Judas strain"
+    },
+    {
+      "author_name": "Simon Raven",
+      "first_publish_year": 1968,
+      "key": "/works/OL836097W",
+      "language": "eng",
+      "title": "The Judas boy"
+    },
+    {
+      "author_name": "Frederick Ramsay",
+      "first_publish_year": 2010,
+      "key": "/works/OL21009964W",
+      "language": "eng",
+      "title": "Judas"
+    },
+    {
+      "author_name": "Howard Bahr",
+      "first_publish_year": 2006,
+      "key": "/works/OL77894W",
+      "language": "eng",
+      "title": "The Judas Field"
+    },
+    {
+      "author_name": "Jeffrey Archer; Francis J. Moloney",
+      "first_publish_year": 2007,
+      "key": "/works/OL14918321W",
+      "language": "ita; eng; por; pol",
+      "title": "The Gospel According to Judas by Benjamin Iscariot"
+    },
+    {
+      "author_name": "Gabrielle Bates",
+      "first_publish_year": 2023,
+      "key": "/works/OL28769341W",
+      "language": "eng",
+      "title": "Judas Goat"
+    },
+    {
+      "author_name": "James Rollins",
+      "first_publish_year": 2008,
+      "key": "/works/OL15143986W",
+      "language": "eng",
+      "title": "The Judas strain"
+    },
+    {
+      "author_name": "Kathryn R. Wall",
+      "first_publish_year": 2004,
+      "key": "/works/OL5738289W",
+      "language": "eng",
+      "title": "Judas Island"
+    },
+    {
+      "author_name": "Rodolphe Kasser; Marvin Meyer; Gregor Wurst; Bart D. Ehrman; Craig A. Evans; Gesine Schenke Robinson",
+      "first_publish_year": 2008,
+      "key": "/works/OL18541817W",
+      "language": "eng",
+      "title": "The Gospel of Judas"
+    },
+    {
+      "author_name": "Peter Van Greenaway",
+      "first_publish_year": 1972,
+      "key": "/works/OL4915600W",
+      "language": "eng",
+      "title": "The Judas gospel"
+    },
+    {
+      "author_name": "Lynda La Plante",
+      "first_publish_year": 2021,
+      "key": "/works/OL24317641W",
+      "language": "eng",
+      "title": "Judas Horse"
+    },
+    {
+      "author_name": "Juan Bosch",
+      "first_publish_year": 1955,
+      "key": "/works/OL1180853W",
+      "language": "spa",
+      "title": "Judas Iscariote, el calumniado"
+    },
+    {
+      "author_name": "Eric Linklater",
+      "first_publish_year": 1939,
+      "key": "/works/OL1201280W",
+      "language": "eng",
+      "title": "Judas"
+    },
+    {
+      "author_name": "Wayne D. Overholser",
+      "first_publish_year": 1960,
+      "key": "/works/OL498393W",
+      "language": "eng",
+      "title": "The Judas gun"
+    },
+    {
+      "author_name": "Elizabeth Palmer",
+      "first_publish_year": 1996,
+      "key": "/works/OL112783W",
+      "language": "eng",
+      "title": "Flowering Judas"
+    },
+    {
+      "author_name": "Violet Winspear",
+      "key": "/works/OL4440478W",
+      "title": "The Child of Judas"
+    },
+    {
+      "author_name": "Elizabeth Judas",
+      "first_publish_year": 1942,
+      "key": "/works/OL7655535W",
+      "language": "eng",
+      "title": "Rasputin"
+    },
+    {
+      "author_name": "Julia O'Faolain",
+      "first_publish_year": 1992,
+      "key": "/works/OL3601094W",
+      "language": "eng",
+      "title": "The Judas cloth"
+    },
+    {
+      "author_name": "Brian J. Bowe",
+      "first_publish_year": 2009,
+      "key": "/works/OL15103720W",
+      "language": "eng",
+      "title": "Judas Priest"
+    },
+    {
+      "author_name": "Jon Sharpe",
+      "first_publish_year": 1983,
+      "key": "/works/OL999700W",
+      "language": "eng",
+      "title": "Trailsman 020"
+    },
+    {
+      "author_name": "Mark Healy; Richard Hook",
+      "first_publish_year": 1989,
+      "key": "/works/OL4850366W",
+      "language": "eng",
+      "title": "Judas Maccabeus"
+    },
+    {
+      "author_name": "Jonathan Gash",
+      "first_publish_year": 1988,
+      "key": "/works/OL16051165W",
+      "language": "eng",
+      "title": "Judas pair"
+    },
+    {
+      "author_name": "Norman Katkov",
+      "first_publish_year": 1991,
+      "key": "/works/OL2929975W",
+      "language": "eng",
+      "title": "The Judas Kiss"
+    },
+    {
+      "author_name": "D. S. Lliteras",
+      "first_publish_year": 1999,
+      "key": "/works/OL529304W",
+      "language": "eng",
+      "title": "Judas the Gentile"
+    },
+    {
+      "author_name": "Erich Mühsam",
+      "first_publish_year": 1924,
+      "key": "/works/OL2564319W",
+      "language": "eng; ger",
+      "title": "Judas"
+    },
+    {
+      "author_name": "J.T Ellison",
+      "first_publish_year": 2009,
+      "key": "/works/OL15185165W",
+      "language": "eng",
+      "title": "Judas Kiss"
+    },
+    {
+      "author_name": "K. K. Downing",
+      "first_publish_year": 2018,
+      "key": "/works/OL19761390W",
+      "language": "eng",
+      "title": "Heavy duty"
+    }
+  ]
+}

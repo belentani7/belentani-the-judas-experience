@@ -1,0 +1,251 @@
+{
+  "summary": {
+    "total_findings": 29,
+    "critical": 0,
+    "high": 0,
+    "medium": 29,
+    "low": 0,
+    "risk_level": "CRITICAL"
+  },
+  "findings": [
+    {
+      "file": "app/routers/auth.py",
+      "line": 1261,
+      "severity": "MEDIUM",
+      "type": "Missing Email Validation",
+      "description": "No email format validation in login",
+      "recommendation": "Add email format validation using Pydantic EmailStr"
+    },
+    {
+      "file": "security_audit.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\security_audit.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\config.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\config.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\database.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\database.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\deps.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\deps.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\main.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\main.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\seed.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\seed.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\__init__.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\__init__.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\models\\entities.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\models\\entities.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\models\\experience.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\models\\experience.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\models\\release.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\models\\release.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\models\\tenant.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\models\\tenant.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\models\\user.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\models\\user.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\models\\work.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\models\\work.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\models\\__init__.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\models\\__init__.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\routers\\api.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\routers\\api.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\routers\\auth.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\routers\\auth.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\routers\\judas.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\routers\\judas.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\routers\\pages.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\routers\\pages.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\routers\\portal.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\routers\\portal.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\routers\\studio.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\routers\\studio.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\routers\\__init__.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\routers\\__init__.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\services\\auth_service.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\services\\auth_service.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\services\\hud.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\services\\hud.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\services\\lab.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\services\\lab.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\services\\store.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\services\\store.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\services\\telemetry.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\services\\telemetry.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "app\\services\\__init__.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\app\\services\\__init__.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    },
+    {
+      "file": "tests\\test_health.py",
+      "line": 1,
+      "severity": "MEDIUM",
+      "type": "World-Readable File",
+      "description": "File C:\\Users\\USER\\belentani-the-judas-experience\\tests\\test_health.py is world-readable",
+      "recommendation": "Restrict file permissions"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "MEDIUM",
+      "action": "Implement input validation",
+      "description": "Add Pydantic models for all user inputs"
+    }
+  ]
+}

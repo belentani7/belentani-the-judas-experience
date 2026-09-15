@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import bcrypt
 import json
 from pathlib import Path
 from threading import Lock
@@ -70,17 +71,18 @@ class Store:
         self.persist()
 
     def hash_password(self, password: str) -> str:
-        salt = get_settings().secret_key
-        return hashlib.sha256(f"{salt}:{password}".encode()).hexdigest()
+        salt = bcrypt.gensalt()
+        return bcrypt.hashpw(password.encode(), salt).decode()
 
     def authenticate(self, email: str, password: str) -> User | None:
         for user in self.users.values():
-            if user.email.lower() == email.lower() and user.password_hash in {
-                password,
-                self.hash_password(password),
-                "omega",
-            }:
-                return user
+            if user.email.lower() == email.lower():
+                try:
+                    if bcrypt.checkpw(password.encode(), user.password_hash.encode()):
+                        return user
+                except (ValueError, AttributeError):
+                    # Handle invalid password hashes
+                    continue
         return None
 
     def register(self, email: str, password: str, display_name: str) -> User:

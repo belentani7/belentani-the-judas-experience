@@ -1,0 +1,661 @@
+{% extends "base.html" %}
+{% block title %}BASE43 // JUDAS_OS{% endblock %}
+{% block content %}
+
+<section class="base43-container">
+    <div class="glass panel">
+        <div class="base43-header">
+            <p class="kicker">FREQUENCY PROTOCOL</p>
+            <h1>Base 43 Extension System</h1>
+            <p class="subtitle">
+                Extending the 5-phase system to 43 phases with frequency operations
+                <span class="frequency-display">Seed: 432.0 Hz</span>
+            </p>
+        </div>
+        
+        <div class="base43-controls">
+            <button class="btn-glass" onclick="loadAllPhases()">Load All Phases</button>
+            <button class="btn-glass" onclick="generateHarmonicChain()">Generate Chain</button>
+            <button class="btn-glass" onclick="showStatistics()">Statistics</button>
+            <button class="btn-glass" onclick="exportData()">Export Data</button>
+        </div>
+        
+        <div class="base43-search">
+            <input type="text" id="searchInput" placeholder="Search phases by name, gem, or frequency..." 
+                   class="glass-input" onkeyup="searchPhases()">
+            <input type="number" id="frequencyInput" placeholder="Search by frequency (Hz)" 
+                   class="glass-input" step="0.1">
+            <button class="btn-glass" onclick="searchByFrequency()">Search Frequency</button>
+        </div>
+        
+        <div class="base43-display" id="base43Display">
+            <div class="phase-grid" id="phaseGrid">
+                <!-- Phases will be loaded here -->
+            </div>
+            
+            <div class="harmonic-chain" id="harmonicChain" style="display: none;">
+                <h3>Harmonic Chain</h3>
+                <div id="chainContent"></div>
+            </div>
+            
+            <div class="statistics" id="statistics" style="display: none;">
+                <h3>System Statistics</h3>
+                <div id="statsContent"></div>
+            </div>
+            
+            <div class="phase-details" id="phaseDetails" style="display: none;">
+                <h3>Phase Details</h3>
+                <div id="detailsContent"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Base43 API integration
+let allPhases = [];
+let currentPhase = null;
+
+// Load all phases
+async function loadAllPhases() {
+    try {
+        const response = await fetch('/api/base43/phases');
+        const data = await response.json();
+        allPhases = data.phases;
+        displayPhases(allPhases);
+        showNotification('Loaded all 43 phases', 'success');
+    } catch (error) {
+        showNotification('Error loading phases: ' + error.message, 'error');
+    }
+}
+
+// Display phases
+function displayPhases(phases) {
+    const grid = document.getElementById('phaseGrid');
+    grid.innerHTML = '';
+    
+    phases.forEach(phase => {
+        const phaseCard = document.createElement('div');
+        phaseCard.className = 'phase-card glass';
+        phaseCard.style.backgroundColor = phase.color;
+        phaseCard.onclick = () => showPhaseDetails(phase);
+        
+        phaseCard.innerHTML = `
+            <div class="phase-header">
+                <span class="phase-id">#${phase.id}</span>
+                <span class="phase-gem">${phase.gem}</span>
+            </div>
+            <div class="phase-name">${phase.name}</div>
+            <div class="phase-frequency">${phase.frequency.toFixed(1)} Hz</div>
+            <div class="phase-description">${phase.description}</div>
+            ${phase.parent_phase !== null ? `<div class="phase-parent">Parent: #${phase.parent_phase}</div>` : ''}
+            ${phase.children.length > 0 ? `<div class="phase-children">Children: ${phase.children.length}</div>` : ''}
+        `;
+        
+        grid.appendChild(phaseCard);
+    });
+}
+
+// Search phases
+async function searchPhases() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    if (!query) {
+        displayPhases(allPhases);
+        return;
+    }
+    
+    const filtered = allPhases.filter(phase => 
+        phase.name.toLowerCase().includes(query) ||
+        phase.description.toLowerCase().includes(query) ||
+        phase.gem.toLowerCase().includes(query)
+    );
+    
+    displayPhases(filtered);
+}
+
+// Search by frequency
+async function searchByFrequency() {
+    const frequency = parseFloat(document.getElementById('frequencyInput').value);
+    if (!frequency) {
+        showNotification('Please enter a frequency', 'error');
+        return;
+    }
+    
+    try {
+        const response = await fetch(`/api/base43/search?query=frequency:${frequency}`);
+        const data = await response.json();
+        
+        if (data.results.length > 0) {
+            displayPhases(data.results);
+            showNotification(`Found ${data.results.length} phase(s) near ${frequency} Hz`, 'success');
+        } else {
+            showNotification(`No phases found near ${frequency} Hz`, 'warning');
+        }
+    } catch (error) {
+        showNotification('Error searching frequency: ' + error.message, 'error');
+    }
+}
+
+// Show phase details
+function showPhaseDetails(phase) {
+    currentPhase = phase;
+    const details = document.getElementById('phaseDetails');
+    const content = document.getElementById('detailsContent');
+    
+    content.innerHTML = `
+        <div class="phase-details-card glass">
+            <div class="phase-details-header">
+                <h4>Phase ${phase.id}: ${phase.name}</h4>
+                <span class="phase-gem">${phase.gem}</span>
+            </div>
+            <div class="phase-details-content">
+                <p><strong>Description:</strong> ${phase.description}</p>
+                <p><strong>Frequency:</strong> ${phase.frequency.toFixed(2)} Hz</p>
+                <p><strong>Octave Equivalent:</strong> ${phase.octave_equivalent.toFixed(2)} Hz</p>
+                <p><strong>Color:</strong> ${phase.color}</p>
+                ${phase.parent_phase !== null ? `<p><strong>Parent Phase:</strong> #${phase.parent_phase}</p>` : ''}
+                ${phase.children.length > 0 ? `<p><strong>Children:</strong> ${phase.children.join(', ')}</p>` : ''}
+            </div>
+            <div class="phase-actions">
+                <button class="btn-glass" onclick="getHarmonicChain(${phase.id})">Get Harmonic Chain</button>
+                <button class="btn-glass" onclick="getCompatibility(${phase.id})">Check Compatibility</button>
+                <button class="btn-glass" onclick="getIntervals(${phase.id})">Show Intervals</button>
+            </div>
+        </div>
+    `;
+    
+    details.style.display = 'block';
+    document.getElementById('harmonicChain').style.display = 'none';
+    document.getElementById('statistics').style.display = 'none';
+}
+
+// Generate harmonic chain
+async function generateHarmonicChain() {
+    if (!currentPhase) {
+        showNotification('Please select a phase first', 'warning');
+        return;
+    }
+    
+    await getHarmonicChain(currentPhase.id);
+}
+
+async function getHarmonicChain(phaseId) {
+    try {
+        const response = await fetch(`/api/base43/harmonic-chain?start_phase=${phaseId}&max_depth=5`);
+        const data = await response.json();
+        
+        const chain = document.getElementById('harmonicChain');
+        const content = document.getElementById('chainContent');
+        
+        let html = `<p>Starting from phase ${data.start_phase}, generated chain depth ${data.chain_depth} with ${data.total_connections} connections</p>`;
+        
+        data.chain.forEach((level, index) => {
+            html += `<div class="chain-level">Level ${index + 1}: ${level.map(phaseId => `#${phaseId}`).join(', ')}</div>`;
+        });
+        
+        content.innerHTML = html;
+        chain.style.display = 'block';
+        document.getElementById('phaseDetails').style.display = 'none';
+        document.getElementById('statistics').style.display = 'none';
+        
+        showNotification('Harmonic chain generated', 'success');
+    } catch (error) {
+        showNotification('Error generating harmonic chain: ' + error.message, 'error');
+    }
+}
+
+// Get compatibility
+async function getCompatibility(phaseId) {
+    if (!currentPhase) {
+        showNotification('Please select a phase first', 'warning');
+        return;
+    }
+    
+    const otherPhaseId = prompt(`Enter second phase ID (1-42) for compatibility check with phase ${phaseId}:`);
+    if (!otherPhaseId || isNaN(otherPhaseId)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`/api/base43/compatibility?phase1_id=${phaseId}&phase2_id=${otherPhaseId}`);
+        const data = await response.json();
+        
+        const modal = createModal('Phase Compatibility', `
+            <div class="compatibility-modal glass">
+                <h4>Compatibility Analysis</h4>
+                <p><strong>Phase 1:</strong> ${data.phase1.name} (${data.phase1.frequency.toFixed(1)} Hz)</p>
+                <p><strong>Phase 2:</strong> ${data.phase2.name} (${data.phase2.frequency.toFixed(1)} Hz)</p>
+                <p><strong>Interval:</strong> ${data.analysis.interval_cents.toFixed(2)} cents</p>
+                <p><strong>Ratio:</strong> ${data.analysis.interval_ratio.toFixed(3)}</p>
+                <p><strong>Harmonic:</strong> ${data.analysis.is_harmonic ? 'Yes' : 'No'}</p>
+                <p><strong>Compatibility Score:</strong> ${data.analysis.compatibility_score.toFixed(1)}%</p>
+            </div>
+        `);
+        
+        document.body.appendChild(modal);
+    } catch (error) {
+        showNotification('Error getting compatibility: ' + error.message, 'error');
+    }
+}
+
+// Get intervals
+async function getIntervals(phaseId) {
+    try {
+        const response = await fetch(`/api/base43/intervals?phase_id=${phaseId}`);
+        const data = await response.json();
+        
+        const modal = createModal('Phase Intervals', `
+            <div class="intervals-modal glass">
+                <h4>Intervals from Phase ${phaseId}</h4>
+                <div class="intervals-list">
+                    ${Object.entries(data.intervals).map(([phaseKey, interval]) => `
+                        <div class="interval-item">
+                            <span>${phaseKey}:</span>
+                            <span>${interval.toFixed(2)} cents</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `);
+        
+        document.body.appendChild(modal);
+    } catch (error) {
+        showNotification('Error getting intervals: ' + error.message, 'error');
+    }
+}
+
+// Show statistics
+async function showStatistics() {
+    try {
+        const response = await fetch('/api/base43/statistics');
+        const data = await response.json();
+        
+        const stats = document.getElementById('statistics');
+        const content = document.getElementById('statsContent');
+        
+        content.innerHTML = `
+            <div class="statistics-grid glass">
+                <div class="stat-item">
+                    <h4>Total Phases</h4>
+                    <p>${data.total_phases}</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Frequency Range</h4>
+                    <p>${data.frequency_range.min.toFixed(1)} - ${data.frequency_range.max.toFixed(1)} Hz</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Mean Frequency</h4>
+                    <p>${data.frequency_range.mean.toFixed(1)} Hz</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Parent-Child Relationships</h4>
+                    <p>${data.parent_child_relationships}</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Total Children</h4>
+                    <p>${data.total_children}</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Harmonic Pairs</h4>
+                    <p>${data.harmonic_pairs}</p>
+                </div>
+            </div>
+            <div class="gem-distribution glass">
+                <h4>Gem Distribution</h4>
+                <div class="gem-list">
+                    ${Object.entries(data.gem_distribution).map(([gem, count]) => `
+                        <div class="gem-item">
+                            <span>${gem}:</span>
+                            <span>${count}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        stats.style.display = 'block';
+        document.getElementById('harmonicChain').style.display = 'none';
+        document.getElementById('phaseDetails').style.display = 'none';
+        
+        showNotification('Statistics loaded', 'success');
+    } catch (error) {
+        showNotification('Error loading statistics: ' + error.message, 'error');
+    }
+}
+
+// Export data
+async function exportData() {
+    try {
+        const response = await fetch('/api/base43/export?format=json');
+        const data = await response.json();
+        
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'base43_system.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        
+        showNotification('Data exported successfully', 'success');
+    } catch (error) {
+        showNotification('Error exporting data: ' + error.message, 'error');
+    }
+}
+
+// Utility functions
+function createModal(title, content) {
+    const modal = document.createElement('div');
+    modal.className = 'modal-overlay';
+    modal.innerHTML = `
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3>${title}</h3>
+                <button class="close-btn" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+            <div class="modal-body">
+                ${content}
+            </div>
+        </div>
+    `;
+    
+    modal.onclick = (e) => {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    };
+    
+    return modal;
+}
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    loadAllPhases();
+});
+</script>
+
+<style>
+.base43-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.base43-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.frequency-display {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+}
+
+.base43-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.base43-search {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.glass-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: white;
+    flex: 1;
+    min-width: 200px;
+}
+
+.glass-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.phase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.phase-card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 150px;
+}
+
+.phase-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.phase-id {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.phase-gem {
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.phase-name {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.phase-frequency {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #ff1a3c;
+    margin-bottom: 0.5rem;
+}
+
+.phase-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.phase-parent, .phase-children {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.harmonic-chain, .statistics, .phase-details {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chain-level {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.stat-item h4 {
+    margin: 0 0 0.5rem 0;
+    opacity: 0.8;
+}
+
+.stat-item p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.gem-distribution {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.gem-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+}
+
+.gem-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.25rem;
+}
+
+.phase-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+.compatibility-modal .compatibility-modal,
+.intervals-modal .intervals-list {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.interval-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    z-index: 1001;
+    animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+    background: #27ae60;
+}
+
+.notification.error {
+    background: #e74c3c;
+}
+
+.notification.warning {
+    background: #f39c12;
+}
+
+.notification.info {
+    background: #3498db;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+</style>
+
+{% endblock %}
